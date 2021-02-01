@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Ingresar</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+</head>
+<body>
+
+	<header th:insert="fragment/menu.html :: menu"> </header>
+	<main role="main">
+		<hr>
+		<div class="container">
+
+			<div class="card">
+				<div class="card-body">
+					<form class="form-signin">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<h4 class="h3 mb-3 font-weight-center">Ingresar</h4>
+								<label for="username" class="sr-only">Username</label> <input
+									type="text" name="username" id="username" class="form-control"
+									placeholder="Username" required autofocus><br> <label
+									for="password" class="sr-only">Password</label> <input
+									type="password" name="password" id="password"
+									class="form-control" placeholder="Password" required><br>
+								<button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+
+								<hr>
+								<strong>PERFIL ADMINISTRADOR</strong>
+								<ul>
+									<li><strong>Username: </strong>admin</li>
+									<li><strong>Password: </strong>1234</li>
+								</ul>
+								<strong>PERFIL ALUMNO</strong>
+								<ul>
+									<li><strong>Username: </strong>41855488</li>
+									<li><strong>Password: </strong>4185</li>
+								</ul>
+
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /container -->
+
+	</main>
+
+	<footer class="footer" th:insert="fragment/footer :: footer">
+	</footer>
+	<!-- Bootstrap core JavaScript-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

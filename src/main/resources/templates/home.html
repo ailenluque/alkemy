@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pagina Principal</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+</head>
+<body>
+	<header th:insert="fragment/menu.html :: menu"> </header>
+
+	<hr>
+	<div class="container">
+		<h2 class="font-weight-bold text-center text-capitalize">Listado
+			de materias</h2>
+		<hr>
+		<div class="row" th:each="subject : ${subjects}">
+			<div class="col-md-3"></div>
+			<div class="col-md-9">
+				<h2 th:text="${subject.name}"></h2>
+				<h6 class="card-title">
+					<strong> Profesor: </strong> <span
+						th:text="${subject.professor.name + ' ' + subject.professor.lastname}"></span>
+				</h6>
+				<p></p>
+				<p>
+					<a class="btn btn-secondary"
+						th:href="@{/subjects/view/{id} (id=${subject.id})}" role="button">Ver
+						detalle &raquo;</a>
+				</p>
+			</div>
+		</div>
+		<hr>
+	</div>
+	<!-- /container -->
+
+	<footer class="footer" th:insert="fragment/footer :: footer">
+	</footer>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

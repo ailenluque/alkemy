@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Profesor</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+</head>
+<body>
+	<header th:insert="fragment/menu.html :: menu"> </header>
+
+	<main role="main">
+
+		<div class="container">
+
+			<div class="card">
+				<h4 class="card-header">
+					<strong>Informacion sobre el profesor</strong>
+				</h4>
+				<div class="card-body">
+					<form th:action="@{/professor/save}" method="post" th:object="${professor}">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="name">Nombre</label> <input type="hidden"
+										th:field="*{id}"> <input type="text" th:field="*{name}"
+										class="form-control" id="name" name="name"
+										placeholder="Nombre del profesor" required="required">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for=lastname>Apellido</label> <input type="text"
+										th:field="*{lastname}" class="form-control" id="lastname" name="lastname"
+										placeholder="Apellido del profesor" required="required">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="dni">DNI</label> <input type="text"
+										th:field="*{dni}" class="form-control" name="dni" id="dni"
+										placeholder="Numero de DNI" required="required">
+								</div>
+							</div>
+
+
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="status">Status</label> <input type="text"
+										th:field="*{status}" class="form-control" name="status" id="status" placeholder=""
+										required="required">
+								</div>
+							</div>
+
+						</div>
+
+						<button type="submit" class="btn btn-primary"
+							th:href="@{/professor/save}">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+
+	<footer class="footer" th:insert="fragment/footer :: footer">
+
+	</footer>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

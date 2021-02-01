@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Materias</title>
+<!-- Bootstrap core CSS -->
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+<link th:href="@{/bootstrap/css/sticky-footer-navbar.css}"
+	rel="stylesheet">
+</head>
+<body>
+	<header th:insert="fragment/menu.html :: menu"> </header>
+
+	<main role="main">
+
+		<div class="container">
+			<div class="card">
+				<h4 class="card-header">
+					<strong>Informacion sobre la materia</strong>
+				</h4>
+				<div class="card-body">
+					<form th:action="@{/subjects/save}" method="post"
+						th:object="${subject}">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="name">Materia</label> <input type="hidden"
+										th:field="*{id}"> <input type="text"
+										th:field="*{name}" class="form-control" id="name" name="name"
+										placeholder="Nombre de la materia" required="required">
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for=professor>Profesor</label> <input type="text"
+										class="form-control" th:field="*{professor.name}" id="name"
+										name="name" placeholder="Nombre del profesor"
+										required="required"> <input type="text"
+										class="form-control" th:field="*{professor.lastname}"
+										id="lastname" name="lastname"
+										placeholder="Apellido del profesor" required="required">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="time">Horario</label> <input type="time"
+										th:field="*{time}" class="form-control" name="time" id="time"
+										placeholder="Horario de la materia" required="required">
+								</div>
+							</div>
+
+
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="numberStudent">Cupo maximo</label> <input
+										type="text" class="form-control" th:field="*{numberStudent}"
+										name="numberStudent" id="numberStudent"
+										placeholder="Cupo maximo de alumnos" required="required">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-9">
+								<div class="form-group">
+									<label for="description"><strong>Descripcion</strong></label>
+									<textarea class="form-control" th:field="*{description}"
+										name="description" id="description" rows="7"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<button type="submit" class="btn btn-primary"
+							th:href="@{/professor/save}">Guardar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+
+	<footer class="footer" th:insert="fragment/footer :: footer">
+
+	</footer>
+	<!-- Bootstrap core JavaScript-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
